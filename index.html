@@ -1,0 +1,88 @@
+<!-- ISSUE -->
+<!-- Google o Safari non mostrano la pagina, né normalmente né con live server-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolzap</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous"/>
+</head>
+<body>
+
+    <main id="root">
+        <aside class="people">
+            <!-- user -->
+            <div class="me">
+                <div class="userme">
+                    <img src="./assets/imgs/avatar_io.jpg" alt="" id="avatarme">
+                    <p>Nome Proprio</p>
+                </div>
+                <div class="iconsme">
+                    <i class="fas fa-circle-notch gray"></i>
+                    <i class="fas fa-comment-alt gray"></i>
+                    <i class="fas fa-ellipsis-v gray"></i>
+                </div>
+            </div>
+            <!-- notifications -->
+            <div class="notifs">
+                <div class="bell">
+                    <i class="fas fa-bell-slash skyblue"></i>
+                </div>
+                <div class="alerts">
+                    <p>Ricevi notifiche di nuovi messaggi</p>
+                    <a class="smaller" href="#">Attiva notifiche desktop</a>
+                </div>
+            </div>
+            <!-- search contacts function -->
+            <div class="search">
+                <div class="lookup">
+                    <i class="fas fa-search gray"></i>
+                    <input type="text" name="" id="lookup" placeholder="Cerca o inizia una nuova chat">
+                </div>
+            </div>
+            <!-- contacts list -->
+            <div class="contacts">
+                <div class="contact" v-for="(contact, index) in contacts" :key="contact.name" @click="changeChatter(index)">
+                    <img :src="'./assets/imgs/avatar' + contact.avatar + '.jpg'" alt="avatar profile pic contacts" class="avatar">
+                    <span>{{contact.name}}</span>
+                </div>
+            </div>
+        </aside>
+        <div class="dash">
+            <div class="chatter">
+                <img class="avatar" :src="'./assets/imgs/avatar' + contacts[currentContact[].avatar + '.jpg'" alt="current chatter avatar pic">
+                <span>{{contacts[currentContact].name}}</span>
+                <div class="chattericons">
+                    <i class="fas fa-search"></i>
+                    <i class="fas fa-paperclip"></i>
+                    <i class="fas fa-ellipsis-v gray"></i>
+                </div>
+            </div>
+            <div class="chat">
+                <div class="read" v-for="message in contacts[currentContact].messages" :class="message.status === 'sent' ? 'sent' : 'received'">
+                    {{message.text}}
+                    {{message.date}}
+                </div>
+                <div class="write">
+                    <i class="far fa-smile"></i>
+                    <input type="text" class="writeinput" placeholder="Scrivi un messaggio" v-model="writeMsg" @keyup.enter="newMsg">
+                    <i class="fas fa-microphone"></i>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- VueJS cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
+    <!--JS-->
+    <script src="./assets/milestones/main3.js"></script>
+</body>
+</html>

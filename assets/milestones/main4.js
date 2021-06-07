@@ -118,9 +118,8 @@ const app = new Vue ({
 
         //milestone 4
         searchContact(search){
-            //console.log(searchPerson);
             const searchSmall = search.toLowercase();
-            console.log(searchSmall);
+            //console.log(searchSmall);
             this.contacts.forEach((contact) => {
                 const contactLower = contact.name.toLowercase();
                 if (contactLower.includes(searchSmall)){
@@ -134,5 +133,3 @@ const app = new Vue ({
 
     }
 })
-
-

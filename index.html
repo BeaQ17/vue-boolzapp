@@ -41,7 +41,9 @@
             <div class="search">
                 <div class="lookup">
                     <i class="fas fa-search gray"></i>
-                    <input type="text" name="search" id="lookup" placeholder="Cerca o inizia una nuova chat" v-model="searchPerson" @keyup="searchContact(searchPerson)" >
+                    <input type="text" name="search" id="lookup" placeholder="Cerca o inizia una nuova chat" 
+                    v-model="searchPerson" @keyup="searchContact(searchPerson)" 
+                    v-if="">
                 </div>
             </div>
             <!-- contacts list -->

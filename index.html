@@ -55,25 +55,31 @@
                 </div>
             </div>
         </aside>
+        <!-- chat dash -->
         <div class="dash">
+            <!-- chatter -->
             <div class="chatter">
-                <img class="avatar" :src="'./assets/imgs/avatar' + contacts[currentContact[].avatar + '.jpg'" alt="current chatter avatar pic">
-                <span>{{contacts[currentContact].name}}</span>
+                <div class="chatterdetails">
+                    <img class="avatar" :src="'./assets/imgs/avatar' + contacts[currentContact].avatar + '.jpg'" alt="current chatter avatar pic">
+                    <span>{{contacts[currentContact].name}}</span>
+                </div>
                 <div class="chattericons">
-                    <i class="fas fa-search"></i>
-                    <i class="fas fa-paperclip"></i>
+                    <i class="fas fa-search gray"></i>
+                    <i class="fas fa-paperclip gray"></i>
                     <i class="fas fa-ellipsis-v gray"></i>
                 </div>
             </div>
+            <!-- chat -->
             <div class="chat">
                 <div class="read" v-for="message in contacts[currentContact].messages" :class="message.status === 'sent' ? 'sent' : 'received'">
                     {{message.text}}
                     {{message.date}}
                 </div>
+                <!-- write -->
                 <div class="write">
-                    <i class="far fa-smile"></i>
+                    <i class="far fa-smile gray"></i>
                     <input type="text" class="writeinput" placeholder="Scrivi un messaggio" v-model="writeMsg" @keyup.enter="newMsg">
-                    <i class="fas fa-microphone"></i>
+                    <i class="fas fa-microphone gray"></i>
                 </div>
             </div>
         </div>

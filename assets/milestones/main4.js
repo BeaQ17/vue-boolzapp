@@ -117,19 +117,23 @@ const app = new Vue ({
         )},
 
         //milestone 4
-        searchContact(search){
-            const searchSmall = search.toLowercase();
-            //console.log(searchSmall);
-            this.contacts.forEach((contact) => {
-                const contactLower = contact.name.toLowercase();
-                if (contactLower.includes(searchSmall)){
+        searchContact(searchPerson){
+            //console.log(searchPerson);
+            const searchLower = searchPerson.toLowerCase();
+            console.log(searchLower);
+
+            this.contacts.forEach((contact) =>{
+                const nameLower = contact.name.toLowerCase();
+                //console.log(nameLower);
+                //console.log(nameLower.includes(searchLower), nameLower);
+                if (nameLower.includes(searchLower)){
                     contact.visible = true;
                 } else {
                     contact.visible = false;
                 }
                 return contact
-            });
-        }
+            })
+        },
 
     }
 })
